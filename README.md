@@ -3,7 +3,7 @@ In first semester I made "Mortal Zero" in Python. In this one, Two co-workers an
 
 
 
-======================================= NUESTRAS REGLAS =======================================
+========== NUESTRAS REGLAS ===========
 
 1. SOBRE EL NUM DE CARTAS  (Se configura en Baraja.cpp)
     1 baraja → “single deck” - 52 cartas     
