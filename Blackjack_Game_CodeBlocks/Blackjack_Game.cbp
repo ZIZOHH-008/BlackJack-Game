@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Blackjack_Game" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Blackjack_Game" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Blackjack_Game" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/Art.h" />
+		<Unit filename="include/Baraja.h" />
+		<Unit filename="include/Carta.h" />
+		<Unit filename="include/Crupier.h" />
+		<Unit filename="include/Juego.h" />
+		<Unit filename="include/Jugador.h" />
+		<Unit filename="include/Mano.h" />
+		<Unit filename="include/Participante.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Art.cpp" />
+		<Unit filename="src/Baraja.cpp" />
+		<Unit filename="src/Carta.cpp" />
+		<Unit filename="src/Crupier.cpp" />
+		<Unit filename="src/Juego.cpp" />
+		<Unit filename="src/Jugador.cpp" />
+		<Unit filename="src/Mano.cpp" />
+		<Unit filename="src/Participante.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
