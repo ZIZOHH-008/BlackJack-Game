@@ -46,6 +46,7 @@ class Juego{
         
     public:
         Juego();
+        ~Juego();
         
         void iniciarRonda();
         void terminarRonda();
