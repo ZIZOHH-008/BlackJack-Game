@@ -9,6 +9,13 @@ Carta::Carta(int _valorNominal, std::string _letraNumCarta, char _palo){
 }
 
 
+
+Carta::~Carta(){
+
+}
+
+
+
 void Carta::mostrarCarta(){
     std::cout << "\n\n==== Información de la carta ====\n";
     std::cout << "Valor: " << valorNominal << '\n';
