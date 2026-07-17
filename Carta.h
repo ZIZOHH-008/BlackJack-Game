@@ -41,6 +41,7 @@ class Carta{
 
     public:
         Carta(int, std::string, char); //constructor
+        ~Carta();
 
         int informarValor();
         void mostrarCarta();
