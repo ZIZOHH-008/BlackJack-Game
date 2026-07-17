@@ -12,6 +12,11 @@ Crupier::Crupier(){
 }
 
 
+Crupier::~Crupier(){
+
+}
+
+
 void Crupier::repartirCartaAdicional(Participante& participante){     // Toma una carta de la baraja
     participante.agregarCarta(baraja.repartirCarta());
 }
