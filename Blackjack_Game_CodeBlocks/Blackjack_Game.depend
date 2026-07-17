@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1780876794 source:/home/zizohh/Desktop/Studying/POO/Actividades de Objetos/Blackjack_Game_CodeBlocks/src/Baraja.cpp
+	"Baraja.h"
+	<algorithm>
+	<random>
+
+1780876880 /home/zizohh/Desktop/Studying/POO/Actividades de Objetos/Blackjack_Game_CodeBlocks/include/Baraja.h
+	"Carta.h"
+	"Mano.h"
+	<vector>
+
+1780876864 /home/zizohh/Desktop/Studying/POO/Actividades de Objetos/Blackjack_Game_CodeBlocks/include/Carta.h
+	<string>
+
+1780876838 /home/zizohh/Desktop/Studying/POO/Actividades de Objetos/Blackjack_Game_CodeBlocks/include/Mano.h
+	"Carta.h"
+	<vector>
+
+1780876788 source:/home/zizohh/Desktop/Studying/POO/Actividades de Objetos/Blackjack_Game_CodeBlocks/src/Carta.cpp
+	"Carta.h"
+	<iostream>
+
