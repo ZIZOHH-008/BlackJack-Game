@@ -45,6 +45,7 @@ class Mano{
 
     public:
         Mano(); //Inicia vacío porque una mano inicia SIN CARTAS
+        ~Mano();
 
         void agregarCarta(Carta carta);     //El objeto se llama carta y es de tipo Carta
         int calcularValor();
