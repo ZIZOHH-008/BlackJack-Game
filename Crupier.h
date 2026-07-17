@@ -1,60 +1,57 @@
-/*
-Autores:
-John Santiago Jurado - 2537685
-Juan Sebastian Paredes - 2535230
-Juan Manuel Parra - 2538414
+#include "Crupier.h"
+#include "Jugador.h"
+#include "Art.h"
+#include <iostream>
 
-Fecha: julio 10 de 2026
-
-
-
-CRC CARD
-
-Clase: Crupier (hereda de Participante)
+#include <thread> // Necesario para std::this_thread
+#include <chrono> // Necesario para std::chrono
 
 
-Responsabilidades:
-- Administrar la baraja de juego.
-- Repartir cartas a los participantes.
-- Repartir cartas para sí mismo.
-- Informar cuántas cartas quedan en la baraja.
-- Reiniciar la baraja cuando sea necesario.
-- Ejecutar su turno de juego según las reglas del Blackjack.
-(La administración de su propia mano -agregar carta, mostrarla,
-calcular su valor y reiniciarla- la hereda de la clase base Participante)
+Crupier::Crupier(){
 
-Colaboradores:
-- Participante (clase base de donde hereda Mano y Carta)
-- Baraja
-- Jugador
-  */
+}
 
 
+Crupier::~Crupier(){
+
+}
 
 
-#ifndef CRUPIER_H
-#define CRUPIER_H
-
-#include "Baraja.h"
-#include "Participante.h"
-#include <vector>
-class Jugador; //evitar dependencia circular, es como incluir jugador
+void Crupier::repartirCartaAdicional(Participante& participante){     // Toma una carta de la baraja
+    participante.agregarCarta(baraja.repartirCarta());
+}
 
 
-class Crupier : public Participante{
-    private:
-        Baraja baraja;
+// mostrarMano(), calcularValorMano() y reiniciarMano() ya no se
+// redefinen aquí: Crupier las hereda directamente de Participante.
 
 
-    public:
-        Crupier();
+Carta Crupier::repartirCarta(){
+    return baraja.repartirCarta();
+}
 
-        void repartirCartaAdicional(Participante& participante);
-        Carta repartirCarta();
-        int cartasRestantes();
-        void reiniciarBaraja();
 
-        void jugarTurno();
-};
+int Crupier::cartasRestantes(){
+    return baraja.cartasRestantes();
+}
 
-#endif // CRUPIER_H
+
+void Crupier::reiniciarBaraja(){
+    baraja = Baraja();
+    baraja.barajar();
+}
+
+
+void Crupier::jugarTurno(){
+
+    while(calcularValorMano() < 17){
+        std::cout << "\n\n♣═♠═♥═♦ El crupier pide una carta.... ♣═♠═♥═♦\n\n";
+        agregarCarta(baraja.repartirCarta());
+        std::this_thread::sleep_for(std::chrono::milliseconds(3500));
+
+        std::cout << "\n\n\n============== MANO CRUPIER ==============";
+        mostrarMano();
+        std::cout << "\nValor Mano Crupier: " << calcularValorMano() << "\n";
+    }
+    std::cout << "\n♣═♠═♥═♦ El crupier se planta ♣═♠═♥═♦\n\n\n";
+}
