@@ -39,6 +39,7 @@ class Baraja{
 
     public:
         Baraja();
+        ~Baraja();
 
         void barajar();
         Carta repartirCarta();
