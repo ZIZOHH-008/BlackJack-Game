@@ -1,58 +1,61 @@
-#include "Crupier.h"
-#include "Jugador.h"
-#include "Art.h"
-#include <iostream>
+/*
+Autores:
+John Santiago Jurado - 2537685
+Juan Sebastian Paredes - 2535230
+Juan Manuel Parra - 2538414
 
-#include <thread> // Necesario para std::this_thread
-#include <chrono> // Necesario para std::chrono
-
-
-Crupier::Crupier(){
-
-}
+Fecha: julio 10 de 2026
 
 
-Crupier::~Crupier(){
 
-}
+CRC CARD
 
-
-void Crupier::repartirCartaAdicional(Participante& participante){     // Toma una carta de la baraja
-    participante.agregarCarta(baraja.repartirCarta());
-}
+Clase: Crupier (hereda de Participante)
 
 
-// mostrarMano(), calcularValorMano() y reiniciarMano() ya no se
-// redefinen aquí: Crupier las hereda directamente de Participante.
+Responsabilidades:
+- Administrar la baraja de juego.
+- Repartir cartas a los participantes.
+- Repartir cartas para sí mismo.
+- Informar cuántas cartas quedan en la baraja.
+- Reiniciar la baraja cuando sea necesario.
+- Ejecutar su turno de juego según las reglas del Blackjack.
+(La administración de su propia mano -agregar carta, mostrarla,
+calcular su valor y reiniciarla- la hereda de la clase base Participante)
+
+Colaboradores:
+- Participante (clase base de donde hereda Mano y Carta)
+- Baraja
+- Jugador
+  */
 
 
-Carta Crupier::repartirCarta(){
-    return baraja.repartirCarta();
-}
 
 
-int Crupier::cartasRestantes(){
-    return baraja.cartasRestantes();
-}
+#ifndef CRUPIER_H
+#define CRUPIER_H
+
+#include "Baraja.h"
+#include "Participante.h"
+#include <vector>
+class Jugador; //evitar dependencia circular, es como incluir jugador
 
 
-void Crupier::reiniciarBaraja(){
-    baraja = Baraja();
-    baraja.barajar();
-}
+class Crupier : public Participante{
+    private:
+        Baraja baraja;
 
 
-void Crupier::jugarTurno(){
+    public:
+        Crupier();
+        ~Crupier() override;
 
-    while(calcularValorMano() < 17){
-        std::cout << "\n\n♣═♠═♥═♦ El crupier pide una carta.... ♣═♠═♥═♦\n\n";
-        agregarCarta(baraja.repartirCarta());
-        std::this_thread::sleep_for(std::chrono::milliseconds(3500));
+        void repartirCartaAdicional(Participante& participante);
+        Carta repartirCarta();
+        int cartasRestantes();
+        void reiniciarBaraja();
 
-        std::cout << "\n\n\n============== MANO CRUPIER ==============";
-        mostrarMano();
-        std::cout << "\nValor Mano Crupier: " << calcularValorMano() << "\n";
-    }
-    std::cout << "\n♣═♠═♥═♦ El crupier se planta ♣═♠═♥═♦\n\n\n";
-}
+        void jugarTurno();
+};
 
+#endif // CRUPIER_H
