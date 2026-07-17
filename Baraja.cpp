@@ -25,6 +25,12 @@ Baraja::Baraja(){       // Double deck
 
 
 
+Baraja::~Baraja(){
+
+};
+
+
+
 void Baraja::barajar(){
     /*
     shuffle - mezcla aleatoriamente los elementos del vector
