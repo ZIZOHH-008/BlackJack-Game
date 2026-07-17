@@ -10,11 +10,14 @@
 Juego::Juego(){
 }
 
+Juego::~Juego(){
+}
+
 
 
 // ============ Manejo de las rondas ============
 
-void Juego::iniciarRonda(){ //¿VIOLA EL PRU?
+void Juego::iniciarRonda(){
 
     for(int i=0; i<jugadores.size(); i++){
         jugadores[i].apostar();
