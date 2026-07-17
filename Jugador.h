@@ -56,6 +56,8 @@ class Jugador : public Participante{
 
     public:
         Jugador(std::string nombre, int saldo);
+        ~Jugador() override;
+        
         std::string getName() const;
 
         void pedirCarta(Crupier& crupier); //Referencia al crupier para no copiar objetos
