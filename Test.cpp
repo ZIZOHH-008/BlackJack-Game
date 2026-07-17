@@ -9,6 +9,11 @@
 #include "Juego.h"
 
 
+/*
+g++ Test.cpp Carta.cpp Mano.cpp Baraja.cpp Participante.cpp Jugador.cpp Crupier.cpp  Juego.cpp Art.cpp -o output/test
+./output/test
+*/
+
 
 //RECOMIENDO OCULTAR LAS FUNCIONES Y SOLO DEJAR ABIERTA LA QUE SE VAYA A TESTEAR
 
@@ -239,15 +244,11 @@ void testCrupier(){
 
     Crupier crupier;
 
-    // ============================
     // Baraja inicial
-    // ============================
     assert(crupier.cartasRestantes() == 104);
 
 
-    // ============================
     // Repartir una carta
-    // ============================
     Carta carta = crupier.repartirCarta();
 
     assert(crupier.cartasRestantes() == 103);
@@ -256,9 +257,7 @@ void testCrupier(){
     assert(carta.informarValor() >= 2 && carta.informarValor() <= 11);
 
 
-    // ============================
     // Repartir carta a un jugador
-    // ============================
     Jugador jugador("Juan",1000);
 
     crupier.repartirCartaAdicional(jugador);
@@ -267,17 +266,12 @@ void testCrupier(){
     assert(crupier.cartasRestantes() == 102);
 
 
-    // ============================
     // Reiniciar baraja
-    // ============================
     crupier.reiniciarBaraja();
 
     assert(crupier.cartasRestantes() == 104);
 
-
-    // ============================
     // Métodos heredados de Participante
-    // ============================
     crupier.agregarCarta(Carta(10,"10",'P'));
     crupier.agregarCarta(Carta(11,"A",'C'));
 
@@ -329,10 +323,7 @@ void testJuego(){
 
 
 
-/*
-g++ Test.cpp Carta.cpp Mano.cpp Baraja.cpp Participante.cpp Jugador.cpp Crupier.cpp  Juego.cpp Art.cpp -o output/test
-./output/test
-*/
+
 
 
 int main(){
