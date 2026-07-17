@@ -9,6 +9,8 @@ Participante::~Participante(){
 }
 
 
+
+
 void Participante::agregarCarta(Carta carta){    // Recibe la carta y la pone en su mano
     mano.agregarCarta(carta);
 }
