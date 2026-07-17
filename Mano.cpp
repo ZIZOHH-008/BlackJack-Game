@@ -8,6 +8,9 @@
 Mano::Mano(){
 };
 
+Mano::~Mano(){
+};
+
 
 
 
