@@ -14,6 +14,12 @@ Jugador::Jugador(std::string _nombre, int _saldo){
 }
 
 
+Jugador::~Jugador(){
+
+}
+
+
+
 std::string Jugador::getName() const{
     return nombre;
 }
@@ -30,7 +36,6 @@ bool Jugador::decidirContinuar(){
 }
 
 
-                //SUPUESTAMENTE ESTO DEBERÍA ESTAR EN "JUEGO"
 void Jugador::jugarTurno(Crupier& crupier){
 
     // Bucle de recibir cartas hasta que él decida parar o se pase de 21
